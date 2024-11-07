@@ -129,7 +129,7 @@
         <p class="res3"> Reserve a Table</p>
     </div>
      <div id="form">
-        <form action="https://sheetdb.io/api/v1/0gzmzcqpb0ips" method="post" id="sheetdb-io">
+        <form name="Booking">
             <div class="half">
                 <label for="people">How Many People</label><br><br>
                 <select name="People" id="people">
@@ -179,18 +179,18 @@
         </div>
     </div>
     <div id="form1">
-        <form>      
+        <form name="Message-us">      
             <div class="">
                 <label for="name">Name</label><br>
-                <input type="text" id="name" name="name" placeholder="Your full name"><br>
+                <input type="text" id="name" name="Name" placeholder="Your full name"><br>
             </div>
             <div class="">
                 <label for="email">Email</label><br>
-                <input type="email" id="email" name="email" placeholder="Your email address">
+                <input type="email" id="email" name="Email" placeholder="Your email address">
             </div>
             <div class="">
                 <label for="textarea">Your Message</label><br>
-                <textarea class="text-area" rows="6" cols="20"></textarea>
+                <textarea class="text-area" name="Message" rows="6" cols="20"></textarea>
             </div>
            
             <button class="btn" type="submit">Send Message</button>
@@ -254,20 +254,15 @@
         <p>Copyright @2024 Blissfull Bites</p>
     </div>
     </footer>
-    <script>
-        var form = document.getElementById('sheetdb.form');
-form.addEventListener("submit", e=> {
-  e.preventDefault();
-  fetch(form.action,{
-    method : "post",
-    body: new FormData(document.getElementById("sheetdb-form))
-                                               }).then (
-      response => response.json()
-      ).then ((html)) =>{
-                       window.open('index.html','_blank');
-                       });
-});
-    </script>
+<script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx8zmh-MNX7myoyrOFaSA_gE-U-Hk9eXsg2tE7yiBRajo9EwHehY9BBFJlvHzmCeC-EtQ/exec'
+        const form = document.forms['booking','Message-us']
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData (form)})
+        .then(response > alert("Thank you! your form is submitted successfully.")) .then(() => { window.location.reload(); }) .catch(error => console.error('Error!', error.message))
+        })
+        </script>
     <script src="script.js" ></script>
 
 </body>
