@@ -254,6 +254,31 @@
         <p>Copyright @2024 Blissfull Bites</p>
     </div>
     </footer>
+        <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx8zmh-MNX7myoyrOFaSA_gE-U-Hk9eXsg2tE7yiBRajo9EwHehY9BBFJlvHzmCeC-EtQ/exec';
+      
+        // Select the forms individually
+        const bookingForm = document.forms['booking'];
+        const messageForm = document.forms['Message-us'];
+      
+        // Create a function to handle form submission
+        const handleSubmit = (form) => {
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+              .then(response => {
+                alert("Thank you! Your form is submitted successfully.");
+                window.location.reload();
+              })
+              .catch(error => console.error('Error!', error.message));
+          });
+        };
+      
+        // Apply the submission function to both forms
+        if (bookingForm) handleSubmit(bookingForm);
+        if (messageForm) handleSubmit(messageForm);
+      </script>
+      
 
 
 </body>
