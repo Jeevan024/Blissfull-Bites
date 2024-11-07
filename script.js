@@ -52,4 +52,18 @@ function validateEmail(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
 }
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx8zmh-MNX7myoyrOFaSA_gE-U-Hk9eXsg2tE7yiBRajo9EwHehY9BBFJlvHzmCeC-EtQ/exec'
+const form = document.forms['booking']
+form.addEventListener('submit', e => {
+e.preventDefault()
+fetch(scriptURL, { method: 'POST', body: new FormData (form)})
+.then(response > alert("Thank you! your form is submitted successfully.")) .then(() => { window.location.reload(); }) .catch(error => console.error('Error!', error.message))
+})
+ scriptURL = 'https://script.google.com/macros/s/AKfycbx8zmh-MNX7myoyrOFaSA_gE-U-Hk9eXsg2tE7yiBRajo9EwHehY9BBFJlvHzmCeC-EtQ/exec'
+ form = document.forms['Message-us']
+form.addEventListener('submit', e => {
+e.preventDefault()
+fetch(scriptURL, { method: 'POST', body: new FormData (form)})
+.then(response > alert("Thank you! your form is submitted successfully.")) .then(() => { window.location.reload(); }) .catch(error => console.error('Error!', error.message))
+})
 
