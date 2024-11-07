@@ -52,4 +52,15 @@ function validateEmail(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
 }
-
+   var form = document.getElementById('sheetdb.form');
+form.addEventListener("submit", e=> {
+  e.preventDefault();
+  fetch(form.action,{
+    method : "post",
+    body: new FormData(document.getElementById("sheetdb-form))
+                                               }).then (
+      response => response.json()
+      ).then ((html)) =>{
+                       window.open('index.html','_blank');
+                       });
+});
